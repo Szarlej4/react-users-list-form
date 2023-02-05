@@ -1,0 +1,10 @@
+.user-form {
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+}
+
+.user-form__input-wrapper {
+	display: flex;
+	flex-direction: column;
+}

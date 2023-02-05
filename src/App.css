@@ -1,0 +1,8 @@
+.app {
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin: 0 auto;
+	width: clamp(20rem, 80vw, 50rem);
+}
