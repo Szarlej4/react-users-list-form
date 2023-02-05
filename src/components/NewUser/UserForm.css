@@ -1,10 +1,20 @@
 .user-form {
 	align-items: stretch;
+	color: white;
 	display: flex;
 	flex-direction: column;
+	font-size: 1.5rem;
+	gap: 1rem;
 }
 
 .user-form__input-wrapper {
+	align-items: stretch;
 	display: flex;
 	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.input-wrapper__input {
+	font-size: 1.25rem;
+	padding: 0.25rem;
 }

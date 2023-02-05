@@ -34,7 +34,7 @@ const UserForm = (props) => {
 
 	return (
 		<form action="" className="user-form">
-			<div className="user-form__input-wrapepr">
+			<div className="user-form__input-wrapper">
 				<label htmlFor="" className="input-wraper__label">
 					Name
 				</label>
@@ -42,22 +42,32 @@ const UserForm = (props) => {
 					value={name}
 					onChange={onNameChangeHandler}
 					type="text"
-					className="input-wraper__input"
+					className="input-wrapper__input"
 				/>
 			</div>
-			<div className="user-form__input-wrapepr">
+			<div className="user-form__input-wrapper">
 				<label htmlFor="" className="input-wraper__label">
 					Age (years)
 				</label>
 				<input
 					value={age}
 					onChange={onAgeChangeHandler}
-					type="text"
-					className="input-wraper__input"
+					type="number"
+					min="1"
+					max="150"
+					step="1"
+					className="input-wrapper__input"
 				/>
 			</div>
-			<Button type="submit" onClick={clickHandler} text="Add new user" />
-			{!isModalHidden && <Modal onButtonClicked={switchIsModalHidden} />}
+			<Button
+				className="button--user_form"
+				type="submit"
+				onClick={clickHandler}
+				text="Add new user"
+			/>
+			{!isModalHidden && (
+				<Modal onSwitchedVisibility={switchIsModalHidden} />
+			)}
 		</form>
 	);
 };

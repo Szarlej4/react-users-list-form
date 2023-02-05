@@ -1,8 +1,4 @@
 .new-user {
-	display: grid;
-	place-content: center;
-	width: 100%;
-	color: white;
-	height: 5rem;
-	background: #3a3333;
+	background: var(--background-light);
+	padding: var(--default-padding);
 }

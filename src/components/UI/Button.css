@@ -1,0 +1,26 @@
+.button {
+	background: var(--background-dark);
+	border: none;
+	color: white;
+	cursor: pointer;
+	transition: filter 0.2s ease-in-out;
+}
+
+.button:hover {
+	filter: brightness(1.2);
+}
+
+.button:active {
+	filter: none;
+}
+
+.button--user_form {
+	align-self: start;
+	border-radius: 0.75rem;
+	font-size: 1.5rem;
+	padding: 1rem 2rem;
+}
+
+.button--modal {
+	pointer-events: all;
+}
