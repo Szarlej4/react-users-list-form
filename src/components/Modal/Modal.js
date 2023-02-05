@@ -3,7 +3,7 @@ import Button from "../UI/Button";
 import Card from "../UI/Card";
 
 const Modal = (props) => {
-	const { onSwitchedVisibility } = props;
+	const { onSwitchedVisibility, errorText } = props;
 
 	const hideModalHandler = (e) => {
 		if (
@@ -17,13 +17,16 @@ const Modal = (props) => {
 	return (
 		<div onClick={hideModalHandler} className="overlay">
 			<Card className="overlay__modal">
-				<p className="modal__text">something is wrong</p>
-				<Button
-					className="button--modal"
-					type="button"
-					onClick={hideModalHandler}
-					text="Hide Me"
-				/>
+				<p className="modal__information">Invalid input</p>
+				<div className="modal__bottom">
+					<p className="bottom__text">{errorText}</p>
+					<Button
+						className="button--modal"
+						type="button"
+						onClick={hideModalHandler}
+						text="Okay"
+					/>
+				</div>
 			</Card>
 		</div>
 	);

@@ -3,14 +3,15 @@
 	border: none;
 	color: white;
 	cursor: pointer;
-	transition: filter 0.2s ease-in-out;
+	transition: filter 0.2s ease-in;
 }
 
 .button:hover {
-	filter: brightness(1.2);
+	filter: brightness(1.15);
 }
 
 .button:active {
+	cursor: auto;
 	filter: none;
 }
 
@@ -22,5 +23,9 @@
 }
 
 .button--modal {
+	align-self: end;
+	border-radius: 0.5rem;
+	font-size: 1.5rem;
+	padding: 1rem 2rem;
 	pointer-events: all;
 }

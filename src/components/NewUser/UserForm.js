@@ -7,6 +7,7 @@ import User from "../../classes/User";
 const UserForm = (props) => {
 	const [name, setName] = useState("");
 	const [age, setAge] = useState("");
+	const [errorText, setErrorText] = useState("");
 	const [isModalHidden, setIsModalHidden] = useState(true);
 
 	const switchIsModalHidden = () => {
@@ -24,10 +25,26 @@ const UserForm = (props) => {
 	const clickHandler = (e) => {
 		e.preventDefault();
 		if (name && age) {
-			props.onAddNewUser(new User(name, age));
-			setName("");
-			setAge("");
-			return;
+			if (name.length < 30) {
+				if (age > 1 && age < 100 && Math.floor(age) !== age) {
+					props.onAddNewUser(new User(name, age));
+					setName("");
+					setAge("");
+					return;
+				} else {
+					setErrorText(
+						"Please enter a valid age (natural number between 1 and 150 years).",
+					);
+				}
+			} else {
+				setErrorText(
+					"Please enter a valid name (shorter than 30 letters).",
+				);
+			}
+		} else {
+			setErrorText(
+				"Please enter a valid name and age (non-empty values).",
+			);
 		}
 		switchIsModalHidden();
 	};
@@ -66,7 +83,10 @@ const UserForm = (props) => {
 				text="Add new user"
 			/>
 			{!isModalHidden && (
-				<Modal onSwitchedVisibility={switchIsModalHidden} />
+				<Modal
+					errorText={errorText}
+					onSwitchedVisibility={switchIsModalHidden}
+				/>
 			)}
 		</form>
 	);
