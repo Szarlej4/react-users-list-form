@@ -2,8 +2,9 @@ import "./App.css";
 import NewUser from "./components/NewUser/NewUser";
 import UsersList from "./components/Users/UsersList";
 import User from "./classes/User";
+import { useState } from "react";
 
-const users = [
+const initialUsers = [
 	new User("John", 33),
 	new User("Arthur", 3),
 	new User("Michael", 53),
@@ -12,9 +13,15 @@ const users = [
 ];
 
 const App = () => {
+	const [users, setUsers] = useState(initialUsers);
+
+	const newUserHandler = (user) => {
+		setUsers([user, ...users]);
+	};
+
 	return (
 		<main className="app">
-			<NewUser />
+			<NewUser onAddNewUser={newUserHandler} />
 			<UsersList users={users} />
 		</main>
 	);

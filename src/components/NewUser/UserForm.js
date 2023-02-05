@@ -2,8 +2,9 @@ import { useState } from "react";
 import "./UserForm.css";
 import Modal from "../Modal/Modal";
 import Button from "../UI/Button";
+import User from "../../classes/User";
 
-const UserForm = () => {
+const UserForm = (props) => {
 	const [name, setName] = useState("");
 	const [age, setAge] = useState("");
 	const [isModalHidden, setIsModalHidden] = useState(true);
@@ -13,19 +14,17 @@ const UserForm = () => {
 	};
 
 	const onNameChangeHandler = (e) => {
-		console.log(e.target.value);
 		setName(e.target.value);
 	};
 
 	const onAgeChangeHandler = (e) => {
-		console.log(e.target.value);
 		setAge(e.target.value);
 	};
 
 	const clickHandler = (e) => {
 		e.preventDefault();
-		if (name) {
-			console.log("essa");
+		if (name && age) {
+			props.onAddNewUser(new User(name, age));
 			setName("");
 			setAge("");
 			return;
