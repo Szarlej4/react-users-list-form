@@ -6,6 +6,11 @@ import Button from "../UI/Button";
 const UserForm = () => {
 	const [name, setName] = useState("");
 	const [age, setAge] = useState("");
+	const [isModalHidden, setIsModalHidden] = useState(true);
+
+	const switchIsModalHidden = () => {
+		isModalHidden ? setIsModalHidden(false) : setIsModalHidden(true);
+	};
 
 	const onNameChangeHandler = (e) => {
 		console.log(e.target.value);
@@ -25,7 +30,7 @@ const UserForm = () => {
 			setAge("");
 			return;
 		}
-		console.log("somethings missing");
+		switchIsModalHidden();
 	};
 
 	return (
@@ -53,6 +58,7 @@ const UserForm = () => {
 				/>
 			</div>
 			<Button type="submit" onClick={clickHandler} text="Add new user" />
+			{!isModalHidden && <Modal onButtonClicked={switchIsModalHidden} />}
 		</form>
 	);
 };
