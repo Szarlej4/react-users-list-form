@@ -1,4 +1,5 @@
 import Card from "../UI/Card";
+import "./UserItem.css";
 
 const UserItem = (props) => {
 	const { name, age } = props;

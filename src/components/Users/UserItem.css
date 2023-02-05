@@ -1,0 +1,5 @@
+.user-item {
+	background: var(--background-dark);
+	font-size: 1.5rem;
+	padding: var(--default-padding);
+}
